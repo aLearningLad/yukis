@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:yukis/components/button.dart';
+import 'package:yukis/themes/colors.dart';
 
 class MenuPage extends StatelessWidget {
   const MenuPage({super.key});
@@ -24,22 +26,43 @@ class MenuPage extends StatelessWidget {
         children: [
 // promo banner
           Container(
+            decoration: BoxDecoration(
+                color: primaryColor, borderRadius: BorderRadius.circular(20)),
+            padding: const EdgeInsets.symmetric(vertical: 25, horizontal: 20),
+            margin: const EdgeInsets.symmetric(horizontal: 25),
             child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Column(
                   children: [
                     // promo message
-                    Text("Get 25% Promo"),
+                    Text(
+                      "Get 25% Promo",
+                      style: GoogleFonts.dmSerifDisplay(
+                          fontSize: 20, color: Colors.white),
+                    ),
+
+                    const SizedBox(
+                      height: 20,
+                    ),
 
                     // redeem btn
                     MyButton(text: 'Redeem', onTap: () {})
                   ],
-                )
+                ),
 
 // image
+                Image.asset(
+                  'lib/images/salmon.png',
+                  height: 100,
+                ),
               ],
             ),
-          )
+          ),
+
+          const SizedBox(
+            height: 25,
+          ),
 
 // search bar
 
