@@ -126,8 +126,12 @@ class _MenuPageState extends State<MenuPage> {
 
 // popular food
           Expanded(
-              child:
-                  ListView.builder(itemBuilder: (context, index) => FoodTile()))
+              child: ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  itemCount: foodMenu.length,
+                  itemBuilder: (context, index) => FoodTile(
+                        food: foodMenu[index],
+                      )))
         ],
       ),
     );
