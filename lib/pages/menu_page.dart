@@ -1,10 +1,34 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:yukis/components/button.dart';
+import 'package:yukis/components/food_tile.dart';
+import 'package:yukis/models/food.dart';
 import 'package:yukis/themes/colors.dart';
 
-class MenuPage extends StatelessWidget {
+class MenuPage extends StatefulWidget {
   const MenuPage({super.key});
+
+  @override
+  State<MenuPage> createState() => _MenuPageState();
+}
+
+class _MenuPageState extends State<MenuPage> {
+// food menu
+  List<Food> foodMenu = [
+// salmon sushi
+    Food(
+        name: "Salmon Sushi",
+        imagePath: "lib/images/salmon.png",
+        price: "R149.99",
+        rating: "8.8/10"),
+
+// tuna
+    Food(
+        name: "Suzuka Tuna",
+        imagePath: "lib/images/tuna.png",
+        price: "R119.99",
+        rating: "9.6/10")
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -101,6 +125,9 @@ class MenuPage extends StatelessWidget {
           ),
 
 // popular food
+          Expanded(
+              child:
+                  ListView.builder(itemBuilder: (context, index) => FoodTile()))
         ],
       ),
     );
