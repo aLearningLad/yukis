@@ -10,13 +10,13 @@ class FoodTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 160, // Constrain the width of the FoodTile
+      width: 160, //
       decoration: BoxDecoration(
         color: Colors.grey[100],
         borderRadius: BorderRadius.circular(20),
       ),
-      margin: const EdgeInsets.only(left: 15), // Adjust margin for spacing
-      padding: const EdgeInsets.all(15), // Adjust padding for better fit
+      margin: const EdgeInsets.only(left: 15),
+      padding: const EdgeInsets.all(15), //
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisSize: MainAxisSize.min, // Constrain vertical space
@@ -66,14 +66,14 @@ class FoodTile extends StatelessWidget {
                   Icon(
                     Icons.star,
                     color: Colors.yellow[800],
-                    size: 16, // Adjust icon size
+                    size: 16,
                   ),
-                  const SizedBox(width: 2), // Spacing between icon and text
+                  const SizedBox(width: 2),
                   Text(
                     food.rating,
                     style: TextStyle(
                       color: Colors.grey[600],
-                      fontSize: 14, // Adjust font size
+                      fontSize: 14,
                     ),
                   ),
                 ],

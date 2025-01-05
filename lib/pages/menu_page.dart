@@ -24,7 +24,12 @@ class _MenuPageState extends State<MenuPage> {
         name: "Suzuka Tuna",
         imagePath: "lib/images/tuna.png",
         price: "R119.99",
-        rating: "9.6/10")
+        rating: "9.6/10"),
+    Food(
+        name: "Caviar Delight",
+        imagePath: "lib/images/caviar.png",
+        price: "R299.99",
+        rating: "9.1/10"),
   ];
 
   @override
@@ -47,11 +52,11 @@ class _MenuPageState extends State<MenuPage> {
       body: SingleChildScrollView(
         //this allows me to scroll
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 25.0),
+          padding: const EdgeInsets.symmetric(horizontal: 10.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              // Promo banner
+              // promo banner
               Container(
                 decoration: BoxDecoration(
                     color: primaryColor,
@@ -91,11 +96,12 @@ class _MenuPageState extends State<MenuPage> {
                 height: 25,
               ),
 
-              // Search bar
+              // search bar
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 10.0),
                 child: TextField(
                   decoration: InputDecoration(
+                    hintText: "Search here . . .",
                     border: OutlineInputBorder(
                         borderSide: BorderSide(color: Colors.white),
                         borderRadius: BorderRadius.circular(20)),
@@ -110,9 +116,9 @@ class _MenuPageState extends State<MenuPage> {
                 height: 25,
               ),
 
-              // Menu list title
+              // menu list title
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 25.0),
+                padding: const EdgeInsets.symmetric(horizontal: 10.0),
                 child: Text(
                   "Food menu here",
                   style: TextStyle(
@@ -126,7 +132,7 @@ class _MenuPageState extends State<MenuPage> {
                 height: 10,
               ),
 
-              // Menu list
+              // menu list
               SizedBox(
                 height: 220,
                 child: ListView.builder(
@@ -142,22 +148,55 @@ class _MenuPageState extends State<MenuPage> {
                 height: 25,
               ),
 
-              // Popular food container
+              // popular food
               Container(
                 decoration: BoxDecoration(
                   color: Colors.grey[100],
                   borderRadius: BorderRadius.circular(20),
                 ),
-                margin: const EdgeInsets.only(bottom: 25),
+                margin: const EdgeInsets.only(left: 5, right: 5, bottom: 25),
                 padding: const EdgeInsets.all(20),
                 child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    // image
-                    Image.asset(
-                      "lib/images/salmon.png",
-                      height: 60,
+                    Row(
+                      children: [
+                        // image
+                        Image.asset(
+                          "lib/images/salmon.png",
+                          height: 60,
+                        ),
+
+                        const SizedBox(
+                          width: 20,
+                        ),
+
+                        // name & price
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            // name
+                            Text(
+                              "Mashima Salmon",
+                              style: GoogleFonts.dmSerifDisplay(fontSize: 18),
+                            ),
+
+                            const SizedBox(
+                              height: 10,
+                            ),
+
+                            // price
+                            Text("R139.99")
+                          ],
+                        ),
+                      ],
                     ),
-                    // name & price can go here if needed
+                    // heart
+                    Icon(
+                      Icons.favorite_outline,
+                      color: Colors.grey,
+                      size: 28,
+                    )
                   ],
                 ),
               ),
