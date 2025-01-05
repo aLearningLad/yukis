@@ -36,6 +36,7 @@ class _MenuPageState extends State<MenuPage> {
       backgroundColor: Colors.grey[300],
       appBar: AppBar(
         backgroundColor: Colors.transparent,
+        elevation: 0,
         leading: Icon(
           Icons.menu,
           color: Colors.grey[900],
@@ -53,12 +54,13 @@ class _MenuPageState extends State<MenuPage> {
           Container(
             decoration: BoxDecoration(
                 color: primaryColor, borderRadius: BorderRadius.circular(20)),
-            padding: const EdgeInsets.symmetric(vertical: 25, horizontal: 20),
+            padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 25),
             margin: const EdgeInsets.symmetric(horizontal: 25),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     // promo message
                     Text(
@@ -91,7 +93,7 @@ class _MenuPageState extends State<MenuPage> {
 
 // search bar
           Padding(
-            padding: const EdgeInsets.all(25.0),
+            padding: const EdgeInsets.symmetric(horizontal: 25.0),
             child: TextField(
               decoration: InputDecoration(
                 border: OutlineInputBorder(
@@ -138,11 +140,39 @@ class _MenuPageState extends State<MenuPage> {
 
           //  popular food
           Container(
+            decoration: BoxDecoration(
+              color: Colors.grey[100],
+              borderRadius: BorderRadius.circular(20),
+            ),
+            margin: const EdgeInsets.only(left: 25, right: 25, bottom: 25),
+            padding: const EdgeInsets.all(29),
             child: Row(
               children: [
 // image
+                Image.asset(
+                  "lib/images/salmon.png",
+                  height: 60,
+                ),
 
 // name & price
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+// name
+                    Text(
+                      "Salmon Deluxe",
+                      style: GoogleFonts.dmSerifDisplay(fontSize: 18),
+                    ),
+
+                    const SizedBox(height: 10),
+
+// price
+                    Text(
+                      "R229.99",
+                      style: TextStyle(color: Colors.grey[700]),
+                    )
+                  ],
+                )
               ],
             ),
           )
