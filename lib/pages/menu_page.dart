@@ -124,14 +124,28 @@ class _MenuPageState extends State<MenuPage> {
             height: 10,
           ),
 
-// popular food
           Expanded(
               child: ListView.builder(
                   scrollDirection: Axis.horizontal,
                   itemCount: foodMenu.length,
                   itemBuilder: (context, index) => FoodTile(
                         food: foodMenu[index],
-                      )))
+                      ))),
+
+          const SizedBox(
+            height: 25,
+          ),
+
+          //  popular food
+          Container(
+            child: Row(
+              children: [
+// image
+
+// name & price
+              ],
+            ),
+          )
         ],
       ),
     );
