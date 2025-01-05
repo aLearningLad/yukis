@@ -23,6 +23,7 @@ class MenuPage extends StatelessWidget {
         centerTitle: true,
       ),
       body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
 // promo banner
           Container(
@@ -65,8 +66,39 @@ class MenuPage extends StatelessWidget {
           ),
 
 // search bar
+          Padding(
+            padding: const EdgeInsets.all(25.0),
+            child: TextField(
+              decoration: InputDecoration(
+                border: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.white),
+                    borderRadius: BorderRadius.circular(20)),
+                focusedBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.white),
+                    borderRadius: BorderRadius.circular(20)),
+              ),
+            ),
+          ),
+
+          const SizedBox(
+            height: 25,
+          ),
 
 // menu list
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 25.0),
+            child: Text(
+              "Food menu here",
+              style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  color: Colors.grey[700],
+                  fontSize: 18),
+            ),
+          ),
+
+          const SizedBox(
+            height: 10,
+          ),
 
 // popular food
         ],
