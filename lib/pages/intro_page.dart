@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:yukis/components/button.dart';
 
 class IntroPage extends StatelessWidget {
   const IntroPage({super.key});
@@ -11,6 +12,7 @@ class IntroPage extends StatelessWidget {
       body: Padding(
         padding: const EdgeInsets.all(25.0),
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const SizedBox(
@@ -27,9 +29,16 @@ class IntroPage extends StatelessWidget {
             ),
 
             // icon
-            Padding(
-              padding: const EdgeInsets.all(50.0),
-              child: Image.asset('lib/images/sushi.png'),
+            Center(
+              child: Image.asset(
+                'lib/images/sushi.png',
+                width: 200,
+                height: 200,
+              ),
+            ),
+
+            const SizedBox(
+              height: 25,
             ),
 
             // title
@@ -51,9 +60,15 @@ class IntroPage extends StatelessWidget {
 
             const SizedBox(
               height: 25,
-            )
+            ),
 
             // get started btn
+            MyButton(
+              text: "Get Started",
+              onTap: () {
+                Navigator.pushNamed(context, '/menupage');
+              },
+            )
           ],
         ),
       ),
