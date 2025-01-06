@@ -12,6 +12,23 @@ class FoodDetailsPage extends StatefulWidget {
 }
 
 class _FoodDetailsPageState extends State<FoodDetailsPage> {
+// quantity state
+  int quantityCount = 0;
+
+// decrement quantity
+  void decrementQuantity() {
+    setState(() {
+      quantityCount > 0 ? quantityCount-- : 0;
+    });
+  }
+
+// increment quantity
+  void incrementQuantity() {
+    setState(() {
+      quantityCount++;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -114,15 +131,43 @@ class _FoodDetailsPageState extends State<FoodDetailsPage> {
                       children: [
                         // minus btn
                         Container(
+                          decoration: BoxDecoration(
+                              color: secondaryColor, shape: BoxShape.circle),
                           child: IconButton(
-                            icon: Icon(Icons.remove),
-                            onPressed: () {},
+                            icon: Icon(
+                              Icons.remove,
+                              color: Colors.white,
+                            ),
+                            onPressed: decrementQuantity,
                           ),
-                        )
+                        ),
 
                         // order count
+                        SizedBox(
+                          width: 40,
+                          child: Center(
+                            child: Text(
+                              quantityCount.toString(),
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 18),
+                            ),
+                          ),
+                        ),
 
                         // minus btn
+                        Container(
+                          decoration: BoxDecoration(
+                              color: secondaryColor, shape: BoxShape.circle),
+                          child: IconButton(
+                            icon: Icon(
+                              Icons.add,
+                              color: Colors.white,
+                            ),
+                            onPressed: incrementQuantity,
+                          ),
+                        ),
                       ],
                     )
                   ],
