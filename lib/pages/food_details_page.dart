@@ -86,7 +86,7 @@ class _FoodDetailsPageState extends State<FoodDetailsPage> {
                 const SizedBox(height: 10),
 
                 Text(
-                  "Expertly sliced salmon with creme almond du plantue, on a bed of sweet potato monash and asparagus",
+                  "Expertly sliced salmon with creme almond du plantue, on a bed of sweet potato monash and asparagus. Each fillet is prepared to the highest standard, overseen by Head Chefs Kamui Masaki, Adrian Willis and Zhou Masayoshi. Love the world over, Yuki's Salmon Sushi is a staple of any culinary event",
                   style: TextStyle(
                       color: Colors.grey[600], fontSize: 14, height: 2),
                 )
@@ -96,9 +96,31 @@ class _FoodDetailsPageState extends State<FoodDetailsPage> {
 // price + quantity + add to cart button
           Container(
             color: primaryColor,
+            padding: EdgeInsets.all(25),
             child: Column(
               children: [
 //  price + quantity
+                Row(
+                  children: [
+                    // price
+                    Text(
+                      widget.food.price,
+                      style: TextStyle(
+                          color: Colors.white, fontWeight: FontWeight.bold),
+                    ),
+
+                    // quantity
+                    Row(
+                      children: [
+                        // minus btn
+
+                        // order count
+
+                        // minus btn
+                      ],
+                    )
+                  ],
+                )
 
 // add to cart button
               ],
