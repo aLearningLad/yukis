@@ -3,6 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:yukis/components/button.dart';
 import 'package:yukis/components/food_tile.dart';
 import 'package:yukis/models/food.dart';
+import 'package:yukis/pages/food_details_page.dart';
 import 'package:yukis/themes/colors.dart';
 
 class MenuPage extends StatefulWidget {
@@ -34,6 +35,12 @@ class _MenuPageState extends State<MenuPage> {
 
   @override
   Widget build(BuildContext context) {
+// navigate when food tile clicked
+    void navigateToFoodDetails(int index) {
+      Navigator.push(
+          context, MaterialPageRoute(builder: (context) => FoodDetailsPage()));
+    }
+
     return Scaffold(
       backgroundColor: Colors.grey[300],
       appBar: AppBar(
@@ -139,6 +146,7 @@ class _MenuPageState extends State<MenuPage> {
                   scrollDirection: Axis.horizontal,
                   itemCount: foodMenu.length,
                   itemBuilder: (context, index) => FoodTile(
+                    onTap: () => navigateToFoodDetails(index),
                     food: foodMenu[index],
                   ),
                 ),
