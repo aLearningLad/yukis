@@ -38,7 +38,11 @@ class _MenuPageState extends State<MenuPage> {
 // navigate when food tile clicked
     void navigateToFoodDetails(int index) {
       Navigator.push(
-          context, MaterialPageRoute(builder: (context) => FoodDetailsPage()));
+          context,
+          MaterialPageRoute(
+              builder: (context) => FoodDetailsPage(
+                    food: foodMenu[index],
+                  )));
     }
 
     return Scaffold(

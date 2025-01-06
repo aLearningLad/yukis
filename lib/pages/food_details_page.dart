@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:yukis/models/food.dart';
 
 class FoodDetailsPage extends StatefulWidget {
-  const FoodDetailsPage({super.key});
+  final Food food;
+  const FoodDetailsPage({super.key, required this.food});
 
   @override
   State<FoodDetailsPage> createState() => _FoodDetailsPageState();
