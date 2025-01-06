@@ -113,6 +113,12 @@ class _FoodDetailsPageState extends State<FoodDetailsPage> {
                     Row(
                       children: [
                         // minus btn
+                        Container(
+                          child: IconButton(
+                            icon: Icon(Icons.remove),
+                            onPressed: () {},
+                          ),
+                        )
 
                         // order count
 
