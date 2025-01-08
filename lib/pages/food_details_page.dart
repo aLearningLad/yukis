@@ -33,6 +33,36 @@ class _FoodDetailsPageState extends State<FoodDetailsPage> {
   }
 
   void addToCart(Food foodItem, quantityCount) {
+    if (quantityCount < 1) {
+      showDialog(
+          barrierDismissible: false,
+          context: context,
+          builder: (context) => AlertDialog(
+                backgroundColor: primaryColor,
+                content: Text(
+                  "Woah there, you need to choose at least ONE portion to order",
+                  style: TextStyle(color: Colors.white),
+                  textAlign: TextAlign.center,
+                ),
+                actions: [
+                  // okay button
+                  IconButton(
+                      onPressed: () {
+                        // pop once to remove dialog box
+                        Navigator.pop((context));
+                      },
+                      icon: const Icon(
+                        Icons.done,
+                        color: Colors.white,
+                      ))
+
+                  //
+                ],
+              ));
+
+      return;
+    }
+
 // get shop
     final shop = context.read<Shop>();
 

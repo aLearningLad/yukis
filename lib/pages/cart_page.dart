@@ -12,7 +12,9 @@ class CartPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Consumer<Shop>(
         builder: (context, value, child) => Scaffold(
+              backgroundColor: primaryColor,
               appBar: AppBar(
+                foregroundColor: Colors.white,
                 title: const Text("My Cart"),
                 backgroundColor: primaryColor,
               ),
@@ -27,19 +29,39 @@ class CartPage extends StatelessWidget {
                     // get food price
                     final String foodPrice = food.price;
 
-                    return (ListTile(
-                      title: Text(foodName),
-                      subtitle: Text(foodPrice),
-                      trailing: IconButton(
-                          icon: Icon(Icons.delete),
-                          onPressed: () {
-                            // get shop
-                            final Shop shop = context.read<Shop>();
+                    return Container(
+                      decoration: BoxDecoration(
+                          color: secondaryColor,
+                          borderRadius: BorderRadius.circular(14)),
+                      margin: EdgeInsets.only(
+                        left: 20,
+                        top: 20,
+                        right: 20,
+                      ),
+                      child: (ListTile(
+                        title: Text(
+                          foodName,
+                          style: TextStyle(
+                              color: Colors.white, fontWeight: FontWeight.bold),
+                        ),
+                        subtitle: Text(
+                          foodPrice,
+                          style: TextStyle(color: Colors.grey[100]),
+                        ),
+                        trailing: IconButton(
+                            icon: Icon(
+                              Icons.delete,
+                              color: Colors.white,
+                            ),
+                            onPressed: () {
+                              // get shop
+                              final Shop shop = context.read<Shop>();
 
-                            // get remove method & call it
-                            void removeFromCart = shop.removeFromCart(food);
-                          }),
-                    ));
+                              // get remove method & call it
+                              void removeFromCart = shop.removeFromCart(food);
+                            }),
+                      )),
+                    );
                   }),
             ));
   }
