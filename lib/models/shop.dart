@@ -1,6 +1,7 @@
+import 'package:flutter/material.dart';
 import 'package:yukis/models/food.dart';
 
-class Shop {
+class Shop extends ChangeNotifier {
   final List<Food> _foodMenu = [
     Food(
         name: "Salmon Sushi",
@@ -27,11 +28,17 @@ class Shop {
   List<Food> get ccart => _cart;
 
   // add to cart
-  void addToCart(Food footItem, int quantity) {
+  void addToCart(Food foodItem, int quantity) {
     for (int i = 0; i < quantity; i++) {
-      _cart.add(footItem);
+      _cart.add(foodItem);
     }
+
+    notifyListeners();
   }
 
   // remove from cart
+  void removeFromCart(Food foodItem) {
+    _cart.remove(foodItem);
+    notifyListeners();
+  }
 }
