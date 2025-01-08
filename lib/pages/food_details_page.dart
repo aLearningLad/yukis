@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:yukis/components/button.dart';
 import 'package:yukis/models/food.dart';
 import 'package:yukis/themes/colors.dart';
 
@@ -118,6 +119,7 @@ class _FoodDetailsPageState extends State<FoodDetailsPage> {
               children: [
 //  price + quantity
                 Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     // price
                     Text(
@@ -171,9 +173,13 @@ class _FoodDetailsPageState extends State<FoodDetailsPage> {
                       ],
                     )
                   ],
-                )
+                ),
 
+                const SizedBox(
+                  height: 25,
+                ),
 // add to cart button
+                MyButton(text: "Add To Cart", onTap: () {})
               ],
             ),
           )
