@@ -43,19 +43,22 @@ class _MenuPageState extends State<MenuPage> {
     return Scaffold(
       backgroundColor: Colors.grey[300],
       appBar: AppBar(
+        foregroundColor: Colors.grey[800],
         backgroundColor: Colors.transparent,
         elevation: 0,
         leading: Icon(
           Icons.menu,
-          color: Colors.grey[900],
         ),
         title: Text(
           "Strand, CPT",
-          style: TextStyle(color: Colors.grey[600]),
         ),
         actions: [
           // cart button
-          IconButton(onPressed: () {}, icon: Icon(Icons.shopping_cart))
+          IconButton(
+              onPressed: () {
+                Navigator.pushNamed(context, '/cartpage');
+              },
+              icon: Icon(Icons.shopping_cart))
         ],
         centerTitle: true,
       ),
