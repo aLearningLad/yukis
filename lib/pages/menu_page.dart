@@ -53,6 +53,10 @@ class _MenuPageState extends State<MenuPage> {
           "Strand, CPT",
           style: TextStyle(color: Colors.grey[600]),
         ),
+        actions: [
+          // cart button
+          IconButton(onPressed: () {}, icon: Icon(Icons.shopping_cart))
+        ],
         centerTitle: true,
       ),
       body: SingleChildScrollView(

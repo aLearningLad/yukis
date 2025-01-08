@@ -32,11 +32,43 @@ class _FoodDetailsPageState extends State<FoodDetailsPage> {
     });
   }
 
-  void addToCart(Food foodItem) {
+  void addToCart(Food foodItem, quantityCount) {
 // get shop
     final shop = context.read<Shop>();
 
 // get add to cart method & use it
+    shop.addToCart(foodItem, quantityCount);
+    final foodName = foodItem.name;
+
+    // dialog to notify user
+    showDialog(
+        context: context,
+        barrierDismissible: false,
+        builder: (context) => AlertDialog(
+              backgroundColor: primaryColor,
+              content: Text(
+                "$foodName added to cart!",
+                style: TextStyle(color: Colors.white),
+                textAlign: TextAlign.center,
+              ),
+              actions: [
+                // okay button
+                IconButton(
+                    onPressed: () {
+                      // pop once to remove dialog box
+                      Navigator.pop((context));
+
+                      // pop again to return to previous screen
+                      Navigator.pop(context);
+                    },
+                    icon: const Icon(
+                      Icons.done,
+                      color: Colors.white,
+                    ))
+
+                //
+              ],
+            ));
   }
 
   @override
@@ -113,7 +145,7 @@ class _FoodDetailsPageState extends State<FoodDetailsPage> {
                 const SizedBox(height: 10),
 
                 Text(
-                  "Expertly sliced salmon with creme almond du plantue, on a bed of sweet potato monash and asparagus. Each fillet is prepared to the highest standard, overseen by Head Chefs Kamui Masaki, Adrian Willis and Zhou Masayoshi. Love the world over, Yuki's Salmon Sushi is a staple of any culinary event",
+                  "Expertly sliced salmon with creme almond du plantue, on a bed of sweet potato monash and asparagus. Each fillet is prepared to the highest standard, overseen by Head Chefs Kamui Masaki, Adrian Willis and Zhou Masayoshi. Loved the world over, Yuki's Salmon Sushi is a staple of any culinary event",
                   style: TextStyle(
                       color: Colors.grey[600], fontSize: 14, height: 2),
                 )
@@ -188,7 +220,9 @@ class _FoodDetailsPageState extends State<FoodDetailsPage> {
                   height: 25,
                 ),
 // add to cart button
-                MyButton(text: "Add To Cart", onTap: () {})
+                MyButton(
+                    text: "Add To Cart",
+                    onTap: () => addToCart(widget.food, quantityCount))
               ],
             ),
           )
