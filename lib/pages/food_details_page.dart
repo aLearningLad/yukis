@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'package:yukis/components/button.dart';
 import 'package:yukis/models/food.dart';
+import 'package:yukis/models/shop.dart';
 import 'package:yukis/themes/colors.dart';
 
 class FoodDetailsPage extends StatefulWidget {
@@ -28,6 +30,13 @@ class _FoodDetailsPageState extends State<FoodDetailsPage> {
     setState(() {
       quantityCount++;
     });
+  }
+
+  void addToCart(Food foodItem) {
+// get shop
+    final shop = context.read<Shop>();
+
+// get add to cart method & use it
   }
 
   @override
